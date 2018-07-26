@@ -4,13 +4,12 @@ setTimeout(function hide() {
   document.getElementById('pag2').style.display = 'block';}, 3000);
 
   var map, infoWindow;
-function initAutocomplete() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: -33.48004501644191, lng: -70.6811756526364 },
-    zoom: 13,
-    mapTypeId: 'roadmap',
-    types: ['restaurant']
-  });
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -33.4188286, lng: -70.64229209999999},
+      zoom: 12
+    });
+    infoWindow = new google.maps.InfoWindow;
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -75,8 +74,8 @@ function initAutocomplete() {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function (position) {
     var pos = {
-      lat: -33.48004501644191,
-      lng: -70.6811756526364
+      lat: -33.4188286,
+      lng: -70.64229209999999
     };
 
     infoWindow.setPosition(pos);
