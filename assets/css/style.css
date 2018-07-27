@@ -31,7 +31,6 @@ h2{
  
 }
 
-
 /* Funcionalidad Aparecer y Desaparecer */
 .disappear {
   display: none;
@@ -51,7 +50,7 @@ height: 20em;
 
 /*mapa google*/
 #map {
-  height: 10em;
+  height: 15em;
   width: 100%;
   margin-left: 4em;
  
