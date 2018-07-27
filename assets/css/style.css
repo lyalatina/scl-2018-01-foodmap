@@ -21,7 +21,7 @@ h2{
 }
 
 #logo{
-  margin-left: -1em;
+  margin-left: 4em;
 }
 #logo-pag2{
   width: 90px;
@@ -41,22 +41,22 @@ h2{
   display: block;
 }
 
-#mapa{
-  margin-top: 8em;
-  margin-left: -2em;
-
-}
 
 #loader-gif{
-  height: 20em;
-  width: 30em;
+margin-left: 5em;
+width: 30em;
+height: 20em;
+  
 }
 
 /*mapa google*/
 #map {
-  height: 100%;
+  height: 10em;
+  width: 100%;
+  margin-left: 4em;
+ 
 }
-/* Optional: Makes the sample page fill the window. */
+
 html, body {
   height: 100%;
   margin: 0;
@@ -132,3 +132,18 @@ html, body {
 #target {
   width: 345px;
 }
+
+#galeria-fotos{
+  margin-top: 2em;
+  margin-left: 5em;
+}
+
+#texto{
+  margin-top: 5em;
+  font-size: 30px;
+}
+
+#iconos{
+  margin-left: 6em;
+}
+

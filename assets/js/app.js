@@ -3,13 +3,16 @@ setTimeout(function hide() {
   $('#pag1').hide('fast');
   document.getElementById('pag2').style.display = 'block';}, 3000);
 
+  //inciando mapa
   var map, infoWindow;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -33.4188286, lng: -70.64229209999999},
-      zoom: 12
+      center: {},
+      zoom: 12,
+      type: ['restaurant']
     });
     infoWindow = new google.maps.InfoWindow;
+
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
@@ -74,8 +77,8 @@ setTimeout(function hide() {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function (position) {
     var pos = {
-      lat: -33.4188286,
-      lng: -70.64229209999999
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
     };
 
     infoWindow.setPosition(pos);
@@ -98,6 +101,9 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+
+
+  
 /*
 function initMap() {
 // Creamos un mapa con las coordenadas actuales

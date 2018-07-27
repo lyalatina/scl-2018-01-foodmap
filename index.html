@@ -4,40 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- script de google -->
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyBAd8hSOvMr3boLyvzysFbEiM2bJnU1OTI&libraries=places"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Bootstrap y estilos-->
-    <!-- here -->
-    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
+  <!-- here -->
+  <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-   
-    <!-- iconos -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <!-- Fuentes -->
+
+  <!-- iconos -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
- 
+
   <title>FoodMap</title>
 </head>
 
-<body onload="initMap()"> 
-  
-  
-  
+<body onload="initMap()">
+
   <!-- Pantalla inicio loader -->
   <!-- comienzo de container -->
   <section class="" id="pag1">
     <div class="container-fluid">
       <div class="row">
         <!-- inicio de columnas -->
-        <div class="col-12">
+        <div class="col-12 offset-md-4 col-centrada">
           <img src="assets/img/logoffiiiii.png" id="logo" alt="">
 
           <!-- Splash loading -->
           <div class="col-sm-12" id="loader">
-          <img src="assets/img/loading.gif" id="loader-gif" alt="loader">
-      </div>
-    </div>
+            <img src="assets/img/loading.gif" id="loader-gif" alt="loader">
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -47,85 +48,67 @@
     <div class="">
       <img src="assets/img/logoffiiiii.png" id="logo-pag2" alt="">
     </div>
-      <!-- inicio de columnas -->
-    <div class="row">
-      <div class="col-12">
-        <!-- Mapa -->
-        <div id="mapa" style="width:300px; height: 200px;">
-        </div>
-      </div>
-    </div>
+    </section>
 
-      <!-- inicio de columnas -->
-    <div class="row">
-      <div class="col-12 mt-5">
+    <!-- inicio de columnas -->
+    <div class="row"></div>
+      <div class="col-12" id="texto"></div>
         <span>Comida mas cerca de ti</span>
+
         <!-- contenedor mapa Google -->
-        <div id="map"></div>
+        <div class="row">
+          <div class="col-12 col-md-9 center mx-auto">
+            <div id="map"></div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-12 mt-3">
-              <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-            
-            <div class="input-group mb-3">
-              <input id="pac-input" class="controls" type="text" placeholder="Tipo de comida" aria-label="Recipient's username" aria-describedby="button-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-outline-dark" type="button" id="button-search"><i class="fas fa-search"></i></button>
+            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+          </div>
+        </div>
+
+        <section>
+          <!-- Galeria -->
+          <div class="container galeria" id="galeria-fotos">
+            <div class="row">
+              <div class="col-md-4 galeria de fotos img-fluid">
+                <img src="assets/img/Comida-Italiana-Restaurante-Italiano.png" class="img-fluid, img-thumbnail" alt="food 1">
+
+              </div>
+              <div class="col-md-4 galeria de fotos img-fluid" galeria de fotos>
+                <img src="assets/img/images.jpeg" class="img-fluid, img-thumbnail" alt="food 2">
+
+              </div>
+              <div class="col-md-4 galeria de fotos img-fluid">
+                <img src="assets/img/comida-chilena-744x465.jpg" class="img-fluid, img-thumbnail" alt="food 3">
               </div>
             </div>
           </div>
-        </div>
-      <!-- Galeria -->
-  <div class="container galeria mt-4">
-      <div class="row">
-        <div class="col-md-4 galeria de fotos img-fluid">
-          <img src="assets/img/Comida-Italiana-Restaurante-Italiano.png" class="img-fluid, img-thumbnail" alt="food 1">
-         
-        </div>
-        <div class="col-md-4 galeria de fotos img-fluid" galeria de fotos>
-          <img src="assets/img/images.jpeg" class="img-fluid, img-thumbnail" alt="food 2">
-          
-        </div>
-        <div class="col-md-4 galeria de fotos img-fluid">
-          <img src="assets/img/tacos.jpg" class="img-fluid, img-thumbnail" alt="food 3">
-          
-        </div>
-      </div>
-    </div>
-    <!-- Fin galeria -->
+          <!-- Fin galeria -->
+        </section>
 
-  
-    <!-- Iconos redes sociales -->
-    <footer>
-        <div class="container">
-          <div class="row">
-            <div class="footer col-12 col-md-4 center mx-auto">
-              <i class="fab fa-twitter"></i>
-              <i class="fab fa-facebook-f"></i>
-              <i class="fab fa-instagram"></i>
+        <!-- Iconos redes sociales -->
+        <footer>
+          <div class="container iconos" id="iconos">
+            <div class="row">
+              <div class="footer col-12 col-md-4 center mx-auto">
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+              </div>
             </div>
           </div>
-        </div>
-        </div>
-        </div>
-      </footer>
-    </section>
-  
+        </footer>
+        <!-- JS Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+          crossorigin="anonymous"></script>
 
-  
-  <!-- script de google -->
-  <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=places"></script>
-
-
-  <!-- JS Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
-   
-    <!-- JS -->
-  <script src="assets/js/app.js/"></script>
+        <!-- JS -->
+        <script src="assets/js/app.js/"></script>
 </body>
 
 </html>
