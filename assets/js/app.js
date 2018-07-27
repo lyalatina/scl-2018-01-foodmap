@@ -1,66 +1,64 @@
-//Splash
-setTimeout(function hide() { $('#pag1').hide('fast');
-document.getElementById('pag2').style.display = 'block'; }, 3000);
+// Splash
+setTimeout(function hide() {$('#pag1').hide('fast');
+document.getElementById('pag2').style.display = 'block';
+}, 3000);
 
 
-  //inciando mapa
+  // inciando mapa
   var map, infoWindow;
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {},
       zoom: 12,
-      type: ['restaurant']
+      type: ['restaurant'],
     });
     infoWindow = new google.maps.InfoWindow;
 
-
-  // Create the search box and link it to the UI element.
-  var input = document.getElementById('pac-input');
-  var searchBox = new google.maps.places.SearchBox(input);
+  // Crea el input para buscar lugares
+  let input = document.getElementById('pac-input');
+  let searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-  // Bias the SearchBox results towards current map's viewport.
-  map.addListener('bounds_changed', function () {
+  map.addListener('bounds_changed', function() {
     searchBox.setBounds(map.getBounds());
   });
 
-  var markers = [];
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
-  searchBox.addListener('places_changed', function () {
-    var places = searchBox.getPlaces();
+  let markers = [];
+  //Escuha el evento cuando el usuario selecciona el lugar
+  searchBox.addListener('places_changed', function() {
+    let places = searchBox.getPlaces();
 
     if (places.length == 0) {
       return;
     }
 
-    // Clear out the old markers.
-    markers.forEach(function (marker) {
+    // Limpia los marcadores anteriores
+    markers.forEach(function(marker) {
       marker.setMap(null);
     });
     markers = [];
 
-    // For each place, get the icon, name and location.
-    var bounds = new google.maps.LatLngBounds();
-    places.forEach(function (place) {
+    // Recorre los lugares, por cada uno obtiene el icono, nombre y locacion
+    let bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
       if (!place.geometry) {
-        console.log("Returned place contains no geometry");
+        console.log('Returned place contains no geometry');
         return;
       }
-      var icon = {
+      let icon = {
         url: place.icon,
         size: new google.maps.Size(71, 71),
         origin: new google.maps.Point(0, 0),
         anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
+        scaledSize: new google.maps.Size(25, 25),
       };
 
-      // Create a marker for each place.
+    // Crea un marcador para cada lugar
       markers.push(new google.maps.Marker({
         map: map,
         icon: icon,
         title: place.name,
-        position: place.geometry.location
+        position: place.geometry.location,
       }));
 
       if (place.geometry.viewport) {
@@ -75,21 +73,21 @@ document.getElementById('pag2').style.display = 'block'; }, 3000);
 }
 
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(function (position) {
-    var pos = {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    let pos = {
       lat: position.coords.latitude,
-      lng: position.coords.longitude
+      lng: position.coords.longitude,
     };
 
     infoWindow.setPosition(pos);
     infoWindow.setContent('Location found.');
     infoWindow.open(map);
     map.setCenter(pos);
-  }, function () {
+  }, function() {
     handleLocationError(true, infoWindow, map.getCenter());
   });
 } else {
-  // Browser doesn't support Geolocation
+  
   handleLocationError(false, infoWindow, map.getCenter());
 }
 
@@ -103,7 +101,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 
-  
 /*
 function initMap() {
 // Creamos un mapa con las coordenadas actuales
@@ -121,17 +118,16 @@ let mapOptions = {
 
 map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
 
-// Creamos el infowindow
 infowindow = new google.maps.InfoWindow();
 
-// Especificamos la localización, el radio y el tipo de lugares que queremos obtener
+
 let request = {
   location: myLatlng,
   radius: 5000,
   types: ['restaurant'],
 };
 
-// Creamos el servicio PlaceService y enviamos la petición.
+
 let service = new google.maps.places.PlacesService(map);
 
 service.nearbySearch(request, function(results, status) {
@@ -151,7 +147,7 @@ service.nearbySearch(request, function(results, status) {
    var zomato = require('zomato');
 
    var client = zomato.createClient({
-    userKey: 'c9358b7a8ecbb24bb098d048eda9cb7b', 
+    userKey: 'c9358b7a8ecbb24bb098d048eda9cb7b',
   });
 
   client.getCategories(null, function(err, result){
@@ -162,32 +158,19 @@ service.nearbySearch(request, function(results, status) {
     }
 });
 
-
-
    //apiZomato c9358b7a8ecbb24bb098d048eda9cb7b
 
 const RapidAPI = require('rapidapi-connect');
 const rapid = new RapidAPI("default-application_5b594235e4b093a6a7fb91c5", "e872a24e-4280-473c-aaf6-85fe8964c331");
 
-rapid.call('Zomato', 'getAllCategories', { 
+rapid.call('Zomato', 'getAllCategories', {
   'apiKey': 'c9358b7a8ecbb24bb098d048eda9cb7b'
   'coordinates': '-33.48004501644191, -70.6811756526364'
 
-  
 }).on('success', (payload)=>{
-	 
 }).on('error', (payload)=>{
-	 
 });
 
 */
-
-
-fetch(`https://developers.zomato.com/c9358b7a8ecbb24bb098d048eda9cb7b/v2.1/geocode?lat=-33.4600915&lon=-70.6550365`) // t=${movie}(titulo)
-  .then(response => response.json())  //si la peticion es correcta va a dar la informacion como una promesa
-  .then(data => {
-    console.log(data);
-    renderInfo(data);
-  })
 
 
