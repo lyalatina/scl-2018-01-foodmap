@@ -1,7 +1,7 @@
 //Splash
-setTimeout(function hide() {
-  $('#pag1').hide('fast');
-  document.getElementById('pag2').style.display = 'block';}, 3000);
+setTimeout(function hide() { $('#pag1').hide('fast');
+document.getElementById('pag2').style.display = 'block'; }, 3000);
+
 
   //inciando mapa
   var map, infoWindow;
